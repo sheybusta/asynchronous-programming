@@ -13,15 +13,15 @@ const log = labeledLogger(Date.now());
 const callback1 = () => {
   log('hello from interval 1');
 };
-setInterval(callback1, 500);
+setInterval(callback1, 500); // we don't need setTimeOut since setInterval, have two parameters - callback and delay 
 
-log('scheduled interval 1');
+log('scheduled interval 1'); // log 1
 
 const callback2 = () => {
   log('bonjour from interval 2');
 };
 setInterval(callback2, 1000);
 
-log('scheduled interval 2');
+log('scheduled interval 2'); // log 2
 
-log('= = = =  the call stack is empty  = = = =');
+log('= = = =  the call stack is empty  = = = ='); // log 3

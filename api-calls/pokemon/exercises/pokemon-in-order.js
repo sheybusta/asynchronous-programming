@@ -1,4 +1,4 @@
-import { origin } from '../origin.js';
+import { origin } from "../origin.js";
 
 /**
  * Returns a selected array of pokemon in order.
@@ -13,7 +13,7 @@ import { origin } from '../origin.js';
 export const pokemonInOrder = async () => {
   // --- generate and declare your resource's URL ---
   // docs: https://pokeapi.co/docs/v2#resource-listspagination-section
-  const URL = _;
+  const URL = `${origin}/`;
 
   // --- fetch, validate and parse the API data (this works!) ---
   const encodedURL = encodeURI(URL);

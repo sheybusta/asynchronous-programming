@@ -1,4 +1,4 @@
-import { origin } from '../origin.js';
+import { origin } from "../origin.js";
 
 /**
  * Returns an array of pokemon in an evolution chain.
@@ -12,7 +12,7 @@ import { origin } from '../origin.js';
 export const evolutionChain = async (chainId = 1) => {
   // --- generate and declare your resource's URL ---
   // docs: https://pokeapi.co/docs/v2#evolution-section
-  const URL = _;
+  const URL = `${origin}/evolution-chain/${chainId}`;
 
   // --- fetch, validate and parse the API data (this works!) ---
   const encodedURL = encodeURI(URL);
@@ -25,7 +25,22 @@ export const evolutionChain = async (chainId = 1) => {
   // --- process the fetched data (if necessary) ---
   //  you do not need to use `await` below this comment
   //  you can refactor this to a separate logic function and test it
-  _; // tricky one!  you will need to push all the species into an array
+
+  // create array of pokemon
+
+  const pokemon = [];
+  pokemon.push(data.chain.species);
+  // pokemon.push(data.chain.evolves_to[0].species);
+  if (data.chain.evolves_to.length !== 0){
+    pokemon.push(data.chain.evolves_to[0].species)
+  }
+
+  if (data.chain.evolves_to[0].evolves_to.length !==0){
+    
+  }
+  console.log(pokemon);
+
+  // tricky one!  you will need to push all the species into an array
 
   // --- return the final data ---
   return pokemon;
